@@ -1,0 +1,1 @@
+Config 配置目录 ArtPath:要打包资源的目录，当前为美术目录  IgnoreFile:剔除资源后缀名
