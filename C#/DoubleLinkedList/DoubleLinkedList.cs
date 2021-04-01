@@ -33,13 +33,13 @@ namespace unity
             //添加到最前
             public bool AddFirst(Object o)
             {
-                AddAfter(new Node(0), head);
+                AddAfter(new Node(o), head);
                 return true;
             }
             //添加到最后
             public bool AddLast(Object o)
             {
-                AddBefore(new Node(0), head);
+                AddBefore(new Node(o), head);
                 return true;
             }
 
