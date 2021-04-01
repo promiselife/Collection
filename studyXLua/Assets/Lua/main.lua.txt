@@ -1,0 +1,27 @@
+--[["
+	desc: lua入口文件
+	author: oyxz
+	since: 2015-09-22
+	copyright: xingchen
+"]]
+
+-- package.path = "./lib/?.lua;" .. package.path
+
+--require "Base.Class"
+
+--local SSDispatch = require "core.SSDispatch"
+
+LuaGameStar = {}
+
+
+local function LuaGameStar:EnterGame()
+	print("EnterGame")
+	--math.randomseed(os.time())
+end
+
+local function LuaGameStar:StarGame()
+	print("StarGame")
+	--math.randomseed(os.time())
+end
+
+return LuaGameStar
