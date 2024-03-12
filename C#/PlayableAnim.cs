@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -21,7 +22,7 @@ public class PlayableAnim : MonoBehaviour
     private byte _lastAnimIndex;    //上一次在播放的动画索引
 
     private static int nameIndex = 1;
-    void Start()
+    public void Init()
     {
         nameIndex += 1;
         _clipPlayables = new Dictionary<string,AnimationClipPlayable>();
@@ -32,7 +33,7 @@ public class PlayableAnim : MonoBehaviour
         var playableOutput = AnimationPlayableOutput.Create(_playableGraph, "Animation", GetComponent<Animator>());
 
         //创建一个混合器，将output和混合器连接起来
-        mixer = AnimationMixerPlayable.Create(_playableGraph, 3);
+        mixer = AnimationMixerPlayable.Create(_playableGraph, Clip.Length + 1);
         playableOutput.SetSourcePlayable(mixer,0);
 
         for (int i = 0; i < Clip.Length; i++)
@@ -73,11 +74,6 @@ public class PlayableAnim : MonoBehaviour
             }
         }
 
-        if (index == 0)
-        {
-            Debug.LogError("TargetPlayAnim Clip is Null");
-            return;
-        }
         _playable =  mixer.GetInput(index);
         isPlaying = true;
         if (_playable.IsNull()) return;
@@ -86,7 +82,7 @@ public class PlayableAnim : MonoBehaviour
         _lastAnimIndex = (byte)index;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         _playableGraph.Destroy();
     }
