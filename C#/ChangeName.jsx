@@ -1,8 +1,8 @@
 #target photoshop
 
-// Created by zhangliheng.
-// DateTime: 2022/10/21 16:12
-// 导出psd中所有layer的坐标信息
+// Created by zzl
+// DateTime: 
+// 修改psd中所有图层的名字
 
 app.bringToFront()
 
