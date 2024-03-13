@@ -12,8 +12,8 @@ public static class UIGray
     private const string ETC1GrayShaderName = "UI/GrayETC1";
     private const string NormalGrayShaderName = "Custom/ImageGray";
     
-    //zlh note:上述材质遇到etc1并且用到alpha的sprite会有问题 所以再加个etc1的材质
-    //important: 如果是动态设置图片的话 置灰应该放在图片设置成功的回调里  因为设置前的sprite很可能和之后的不一致(一个用了etc1 一个没用)
+    //上述材质遇到etc1并且用到alpha的sprite会有问题 所以再加个etc1的材质
+    //如果是动态设置图片的话 置灰应该放在图片设置成功的回调里  因为设置前的sprite很可能和之后的不一致(一个用了etc1 一个没用)
 
     //获取或创建一个ETC1的灰色材质
     private static Material GetEtc1GrayMaterial()
@@ -54,7 +54,7 @@ public static class UIGray
         return targetMat;
     }
     
-    //add by zlh: 如果image当前是置灰状态 需要重新检查下 因为last sprite 和current sprite 有可能format不一致
+    // 如果image当前是置灰状态 需要重新检查下 因为last sprite 和current sprite 有可能format不一致
     public static void DoCheckAfterSetSprite(Image image)
     {
         if (image == null || image.sprite == null || image.sprite.texture == null || image.material == null)
